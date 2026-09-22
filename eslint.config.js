@@ -23,6 +23,12 @@ module.exports = defineConfig([
     },
   },
   {
-    ignores: ['dist/*', '.expo/*', 'node_modules/*', 'supabase/functions/*'],
+    ignores: [
+      'dist/*',
+      '.expo/*',
+      'node_modules/*',
+      'supabase/functions/*',
+      'src/types/database.ts',
+    ],
   },
 ]);

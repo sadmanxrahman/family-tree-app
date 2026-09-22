@@ -6,6 +6,8 @@ import './cryptoPolyfill';
 import { createClient } from '@supabase/supabase-js';
 import { AppState } from 'react-native';
 
+import type { Database } from '@/types/database';
+
 import { secureStorage } from './secureStorage';
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
@@ -19,9 +21,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-// TODO: pass the generated Database type (src/types) once there are more tables,
-// so every query is type-checked against the real schema.
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+// Typed against the live schema: regenerate src/types/database.ts after every migration
+// with `npx supabase gen types typescript --linked > src/types/database.ts`.
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
     // Keychain/Keystore rather than plain storage: the refresh token is a long-lived
     // key to someone's family history.
