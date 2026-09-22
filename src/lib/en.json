@@ -1,4 +1,11 @@
 {
+  "app": {
+    "name": "Roots",
+    "tagline": "Build your family tree together and keep your family's memories in one private place."
+  },
+  "common": {
+    "back": "Back"
+  },
   "tabs": {
     "tree": "Tree",
     "treeA11y": "Family tree",
@@ -24,5 +31,76 @@
   "profile": {
     "placeholderTitle": "Your profile",
     "placeholderBody": "Your account and settings will live here."
+  },
+  "auth": {
+    "welcome": {
+      "ageConfirm": "I'm 18 or older",
+      "ageRequired": "Please confirm you're 18 or older to continue.",
+      "continueWithEmail": "Continue with email",
+      "privacyNote": "Private by default. Only relatives you invite can see your family's tree."
+    },
+    "email": {
+      "title": "Sign in with email",
+      "intro": "Enter your email and we'll send you a link to sign in. No password needed.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "invalidEmail": "Please enter a valid email address, like name@example.com.",
+      "submit": "Email me a sign-in link"
+    },
+    "checkEmail": {
+      "title": "Check your email",
+      "body": "We sent a sign-in link to {{email}}. Open the email on this phone and tap the link.",
+      "codeIntro": "Link not working? Type the code from the same email instead.",
+      "codeLabel": "Code from the email",
+      "invalidCode": "Enter the number from the email. It's usually 6 digits.",
+      "submitCode": "Sign in with code",
+      "resend": "Send a new email",
+      "resent": "We sent a new email. It can take a minute to arrive.",
+      "differentEmail": "Use a different email"
+    },
+    "callback": {
+      "signingIn": "Signing you in…"
+    },
+    "error": {
+      "title": "We couldn't sign you in",
+      "tryAgain": "Back to sign-in"
+    },
+    "restoring": "Opening your family tree…",
+    "signOut": "Sign out"
+  },
+  "authErrors": {
+    "rateLimited": "Too many attempts. Please wait a minute, then try again.",
+    "expiredOrInvalid": "That link or code has expired or isn't right. Ask for a new email and use the newest one.",
+    "wrongDevice": "That link was opened outside this app, so it couldn't sign you in here. Open the email on this phone, or type the code from the email instead.",
+    "serverError": "We couldn't send your sign-in email just now. This is a problem on our side, not your connection. Please try again in a few minutes.",
+    "network": "We couldn't reach the internet. Check your connection and try again.",
+    "unknown": "Something went wrong on our side. Please try again in a moment."
+  },
+  "crash": {
+    "title": "Something went wrong",
+    "body": "This screen ran into a problem. We've been notified. Your family's data is safe.",
+    "retry": "Try again"
+  },
+  "dev": {
+    "open": "Developer tools",
+    "title": "Developer tools",
+    "intro": "Only visible while developing. Use these to check that monitoring and flags are working.",
+    "accountId": "Account ID: {{id}}",
+    "sentryHeading": "Error tracking (Sentry)",
+    "sentryOn": "On: events are being sent.",
+    "sentryOff": "Off: add EXPO_PUBLIC_SENTRY_DSN to .env and restart.",
+    "redScreenNote": "In development, a red error screen appears after each test. That's expected; dismiss it.",
+    "throwError": "Throw an uncaught error",
+    "rejectPromise": "Reject a promise",
+    "crashRender": "Crash this screen",
+    "posthogHeading": "Analytics (PostHog)",
+    "posthogOn": "On: screen views are being sent.",
+    "posthogOff": "Off: add EXPO_PUBLIC_POSTHOG_KEY to .env and restart.",
+    "flagsHeading": "Feature flags",
+    "flagsLoading": "Loading from Supabase…",
+    "flagsLoaded": "Loaded from Supabase at app start.",
+    "flagsDefaults": "Using safe defaults (not loaded).",
+    "on": "On",
+    "off": "Off"
   }
 }

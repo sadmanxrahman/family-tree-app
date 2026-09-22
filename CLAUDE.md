@@ -54,6 +54,7 @@ the app in thirty seconds.
 | Language      | TypeScript, strict                                                                               |
 | Routing       | **Expo Router** (file-based)                                                                     |
 | Backend       | **Supabase** — Postgres, Auth, Storage, Realtime, Edge Functions                                 |
+| Auth          | **Supabase Auth** — email magic link (+ one-time code backup); session in **expo-secure-store**  |
 | Server state  | **TanStack Query** (`@tanstack/react-query`)                                                     |
 | Client state  | **Zustand**                                                                                      |
 | Forms         | **react-hook-form** + **zod**                                                                    |
@@ -74,6 +75,11 @@ I develop on a physical iPhone using Expo Go, and have no Apple Developer accoun
 install a custom development build on iOS. Do not add any package that is not included in Expo
 Go without stopping and telling me first. If a feature seems to need one, propose an Expo
 Go-compatible alternative and explain the tradeoff before writing code.
+
+**Sign in with Apple and Sign in with Google are deferred to Phase 7**, when I have an Apple
+Developer account and a development build. Until then, email magic link is the only sign-in
+method. Apple must ship alongside Google (App Store rule 4.8). Both slot into
+`src/features/auth/signInMethods.ts` as `action` methods — see the notes in that file.
 
 **Do not add a dependency without saying why in the commit message.** Every package is a
 future maintenance burden and a potential build break.

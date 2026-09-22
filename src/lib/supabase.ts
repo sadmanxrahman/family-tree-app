@@ -1,9 +1,12 @@
 // Supabase uses the web URL API, which React Native only partly implements.
 import 'react-native-url-polyfill/auto';
+// Must load before createClient: gives PKCE secure randomness and SHA-256.
+import './cryptoPolyfill';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 import { AppState } from 'react-native';
+
+import { secureStorage } from './secureStorage';
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
@@ -16,15 +19,19 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-// TODO: pass the generated Database type (src/types) once the first migration exists,
+// TODO: pass the generated Database type (src/types) once there are more tables,
 // so every query is type-checked against the real schema.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    // Keeps people signed in between app launches.
-    storage: AsyncStorage,
+    // Keychain/Keystore rather than plain storage: the refresh token is a long-lived
+    // key to someone's family history.
+    storage: secureStorage,
     autoRefreshToken: true,
     persistSession: true,
-    // Only relevant on web, where the session arrives in the URL.
+    // PKCE: the magic link and Google redirect carry a one-time code rather than the
+    // tokens themselves, so a leaked link or URL is useless on another device.
+    flowType: 'pkce',
+    // Deep links are handled explicitly by the /callback route.
     detectSessionInUrl: false,
   },
 });

@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { useTheme } from '@/hooks/useTheme';
@@ -8,10 +8,12 @@ type Props = {
   icon: ComponentProps<typeof MaterialCommunityIcons>['name'];
   title: string;
   body: string;
+  /** Optional actions below the text. */
+  children?: ReactNode;
 };
 
 /** Temporary content for tabs whose feature has not been built yet. */
-export function PlaceholderScreen({ icon, title, body }: Props) {
+export function PlaceholderScreen({ icon, title, body, children }: Props) {
   const { colors, spacing, radii, typography } = useTheme();
 
   return (
@@ -44,6 +46,9 @@ export function PlaceholderScreen({ icon, title, body }: Props) {
         {title}
       </Text>
       <Text style={[typography.body, styles.centered, { color: colors.textMuted }]}>{body}</Text>
+      {children ? (
+        <View style={[styles.actions, { marginTop: spacing.xl }]}>{children}</View>
+      ) : null}
     </ScrollView>
   );
 }
@@ -59,6 +64,12 @@ const styles = StyleSheet.create({
     height: 96,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  actions: {
+    alignSelf: 'stretch',
+    maxWidth: 360,
+    width: '100%',
+    marginHorizontal: 'auto',
   },
   centered: {
     textAlign: 'center',
