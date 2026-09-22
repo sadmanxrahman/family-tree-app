@@ -1,0 +1,45 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Secrets — never commit real keys (CLAUDE.md rule 6). .env.example IS committed.
+.env
+.env*.local
+.env.*
+!.env.example
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Generated native folders (Expo managed workflow regenerates these)
+/ios
+/android
+
+# Metro
+.metro-health-check*
+
+# Sentry
+.sentryclirc
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+
+# typescript
+*.tsbuildinfo

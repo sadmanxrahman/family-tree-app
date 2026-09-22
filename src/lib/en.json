@@ -1,0 +1,28 @@
+{
+  "tabs": {
+    "tree": "Tree",
+    "treeA11y": "Family tree",
+    "feed": "Feed",
+    "feedA11y": "Memory feed",
+    "map": "Map",
+    "mapA11y": "Family map",
+    "profile": "Profile",
+    "profileA11y": "Your profile"
+  },
+  "tree": {
+    "placeholderTitle": "Your family tree",
+    "placeholderBody": "This is where your family will grow, one person at a time."
+  },
+  "feed": {
+    "placeholderTitle": "Family feed",
+    "placeholderBody": "Memories your relatives add will appear here."
+  },
+  "map": {
+    "placeholderTitle": "Family map",
+    "placeholderBody": "See where your family has lived, from birthplaces to hometowns."
+  },
+  "profile": {
+    "placeholderTitle": "Your profile",
+    "placeholderBody": "Your account and settings will live here."
+  }
+}
